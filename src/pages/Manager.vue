@@ -329,6 +329,10 @@ function setFunkyMode(value: boolean) {
     settings.value.setFunkyMode(value);
 }
 
+function setLinuxUseFlatpak(value: boolean) {
+    settings.value.setLinuxUseFlatpak(value);
+}
+
 function browseDataFolder() {
     LinkProvider.instance.openLink('file://' + PathResolver.ROOT);
 }
@@ -494,6 +498,9 @@ async function handleSettingsCallbacks(invokedSetting: any) {
             break;
         case "ToggleFunkyMode":
             setFunkyMode(!settings.value.getContext().global.funkyModeEnabled);
+            break;
+        case "ToggleLinuxUseFlatpak":
+            setLinuxUseFlatpak(!settings.value.getContext().global.linuxUseFlatpak);
             break;
         case "SwitchTheme":
             toggleDarkTheme();
